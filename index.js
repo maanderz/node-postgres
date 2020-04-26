@@ -19,14 +19,14 @@ app.get('/', (req,res) => {
 })
 
 app.get('/:id', (req, res) => {
-  console.log('id?',req.params.id)
-  // questions_model.getQuestion(id)
-  // .then(response => {
-  //   res.status(200).send(response);
-  // })
-  // .catch(error => {
-  //   res.status(500).send(error);
-  // })
+  let id = req.params.id;
+  questions_model.getQuestion(id)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
 })
 
 app.listen(port, () => {
